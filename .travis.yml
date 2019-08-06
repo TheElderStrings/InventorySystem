@@ -1,6 +1,7 @@
 # Travis CI file
 
 sudo: false
+dist: trusty
 
 language: java
 
