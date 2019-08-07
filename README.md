@@ -1,5 +1,7 @@
 # Inventory System
 
+[![Build Status](https://travis-ci.com/TheElderStrings/InventorySystem.svg?branch=master)](https://travis-ci.com/TheElderStrings/InventorySystem)
+
 ### Educative exercise about Java Generics
 
 The target is to build a basic copy of Counter-Strike: Global Offensive
