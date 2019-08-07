@@ -1,20 +1,19 @@
 # Inventory System
 
-## This repository is part of a learning exercise about Generics.
+### Educative exercise about Java Generics
 
-The target is to build a basic copy of CounterStrike : Global Offense using generic type definition.
+The target is to build a basic copy of Counter-Strike: Global Offensive
+inventory system using generic type definitions.
 
-## Targets
+### Targets
 
-* Weapon Mapping
-  * [ ] Having a definition for each weapon present on the game with basic attributes
-  * [ ] Having it's side defined by an interface
+* Weapon Mapping:
+  * [ ] Having a definition for each weapon present on the game with basic attributes.
+  * [x] Having it's side defined by an interface.
   
-* Loadout Management
-  * [ ] Manage costs
-  * [ ] Manage weapon slots (Dynamically defined by a properties file)
-  * [ ] Manage allowed weapons to be bought by side.
-  
-  
-  
-CounterStrike : Global Offense is a licensed trademark of Valve
+* Loadout Management:
+  * [ ] Managing costs.
+  * [x] Managing weapon slots (dynamically defined by a properties file).
+  * [x] Managing allowed weapons to be bought by side.
+
+Counter-Strike: Global Offensive is a licensed trademark of Valve.
