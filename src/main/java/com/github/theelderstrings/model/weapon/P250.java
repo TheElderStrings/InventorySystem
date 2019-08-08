@@ -2,7 +2,6 @@ package com.github.theelderstrings.model.weapon;
 
 import com.github.theelderstrings.model.side.CounterTerrorist;
 import com.github.theelderstrings.model.side.Terrorist;
-import com.github.theelderstrings.model.weapon.SecondaryWeapon;
 
 public class P250 extends SecondaryWeapon implements CounterTerrorist, Terrorist {
   public P250(int cost) {

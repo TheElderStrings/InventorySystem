@@ -1,7 +1,6 @@
 package com.github.theelderstrings.model.weapon;
 
 import com.github.theelderstrings.model.side.CounterTerrorist;
-import com.github.theelderstrings.model.weapon.PrimaryWeapon;
 
 public class M4A4 extends PrimaryWeapon implements CounterTerrorist {
   public M4A4(int cost) {
