@@ -15,8 +15,7 @@ public class Main {
     Map<String, Integer> loadout = loadProperties();
     Player<Terrorist> player = new Player();
     player
-        .getLoadout()
-        .withProperties()
+        .configureLoadout()
         .primarySlots(loadout.get("PrimarySlots"))
         .secondarySlots(loadout.get("SecondarySlots"))
         .meleSlots(loadout.get("MeleSlots"))

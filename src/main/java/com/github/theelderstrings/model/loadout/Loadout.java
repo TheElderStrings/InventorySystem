@@ -7,41 +7,82 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Loadout<T extends Side> {
-  private LoadoutProperties properties;
   private Set<T> weapons;
+  private int primarySlots;
+  private int secondarySlots;
+  private int meleSlots;
+  private int utilitySlots;
+  private int maxUtilityStack;
 
-  public Loadout() {
+  public static class Builder {
+    private int primarySlots;
+    private int secondarySlots;
+    private int meleSlots;
+    private int utilitySlots;
+    private int maxUtilityStack;
+
+    public Builder primarySlots(int primarySlots) {
+      this.primarySlots = primarySlots;
+      return this;
+    }
+
+    public Builder secondarySlots(int secondarySlots) {
+      this.secondarySlots = secondarySlots;
+      return this;
+    }
+
+    public Builder meleSlots(int meleSlots) {
+      this.meleSlots = meleSlots;
+      return this;
+    }
+
+    public Builder utilitySlots(int utilitySlots) {
+      this.utilitySlots = utilitySlots;
+      return this;
+    }
+
+    public Builder maxUtilityStack(int maxUtilityStack) {
+      this.maxUtilityStack = maxUtilityStack;
+      return this;
+    }
+
+    public Loadout build() {
+      return new Loadout(this);
+    }
+  }
+
+  public Loadout(Builder builder) {
     weapons = new HashSet<>();
+    primarySlots = builder.primarySlots;
+    secondarySlots = builder.secondarySlots;
+    meleSlots = builder.meleSlots;
+    utilitySlots = builder.utilitySlots;
+    maxUtilityStack = builder.maxUtilityStack;
   }
 
-  public LoadoutProperties withProperties() {
-    properties = new LoadoutProperties();
-    return properties;
-  }
-
-  public boolean buy(T weapon) {
-    if (weapon instanceof PrimaryWeapon) {
-      long count = weapons.stream().filter(w -> w instanceof PrimaryWeapon).count();
-      if (count >= properties.getPrimarySlots()) {
-        throw new LoadoutException("Slot limit for primary weapons reached.");
-      }
-      return weapons.add(weapon);
+  public void buy(T weapon) {
+    if (checkWeaponValidity(weapon)) {
+      weapons.add(weapon);
     }
-    if (weapon instanceof SecondaryWeapon) {
-      long count = weapons.stream().filter(w -> w instanceof SecondaryWeapon).count();
-      if (count >= properties.getSecondarySlots()) {
-        throw new LoadoutException("Slot limit for secondary weapons reached.");
-      }
-      return weapons.add(weapon);
-    }
-    return false;
   }
 
   public Set<T> getWeapons() {
     return weapons;
   }
 
-  public LoadoutProperties getProperties() {
-    return properties;
+  private boolean checkWeaponValidity(T weapon) {
+    if (weapon instanceof PrimaryWeapon) {
+      if (weapons.stream().filter(PrimaryWeapon.class::isInstance).count() >= primarySlots) {
+        throw new LoadoutException("Slot limit for primary weapons reached.");
+      }
+      return true;
+    }
+    if (weapon instanceof SecondaryWeapon) {
+      if (weapons.stream().filter(SecondaryWeapon.class::isInstance).count() >= secondarySlots) {
+        throw new LoadoutException("Slot limit for secondary weapons reached.");
+      }
+      return true;
+    }
+    return false;
   }
 }
