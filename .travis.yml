@@ -1,6 +1,5 @@
-# Travis CI file
-
 sudo: false
+
 dist: trusty
 
 language: java
@@ -10,8 +9,12 @@ jdk: oraclejdk8
 cache:
   directories:
     - "$HOME/.m2/repository"
-    
+
 install:
   - if [[ $TRAVIS_PULL_REQUEST = false ]] && [[ $TRAVIS_BRANCH = master ]] || [[ $TRAVIS_TAG = v* ]]; then GOAL=deploy; else GOAL=install; fi
 
 script: mvn -q -U -T 2 install
+
+notifications:
+  slack:
+    secure: $SLACK_INTEGRATION

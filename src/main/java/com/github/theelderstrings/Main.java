@@ -9,8 +9,12 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Main {
+  private static final Logger logger = LoggerFactory.getLogger(Main.class);
+
   public static void main(String[] args) {
     Map<String, Integer> loadout = loadProperties();
     Player<Terrorist> player = new Player();
@@ -33,7 +37,7 @@ public class Main {
     Map<String, Integer> loadout = new HashMap<>();
     try (InputStream inputStream = Main.class.getResourceAsStream("/loadout.properties")) {
       properties.load(inputStream);
-      System.err.println(properties);
+      logger.info(properties.toString());
       if (!properties.isEmpty()) {
         for (String key : properties.stringPropertyNames()) {
           int value = Integer.valueOf(properties.getProperty(key));
