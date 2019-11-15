@@ -16,7 +16,7 @@
     <logback-classic.version>1.2.3</logback-classic.version>
     <junit.version>4.13-beta-3</junit.version>
     <maven-compiler-version>3.8.1</maven-compiler-version>
-    <maven-git-code-format.version>1.31</maven-git-code-format.version>
+    <maven-git-code-format.version>1.37</maven-git-code-format.version>
     <assertj.version>3.13.2</assertj.version>
   </properties>
 
