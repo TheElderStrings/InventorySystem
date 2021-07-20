@@ -13,7 +13,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>1.8</java.version>
-    <logback-classic.version>1.2.3</logback-classic.version>
+    <logback-classic.version>1.2.4</logback-classic.version>
     <junit.version>4.13-beta-3</junit.version>
     <maven-compiler-version>3.8.1</maven-compiler-version>
     <maven-git-code-format.version>1.37</maven-git-code-format.version>
